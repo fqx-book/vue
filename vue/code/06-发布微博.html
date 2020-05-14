@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>发布微博</title>
+		<script src="../../js/vue.js"></script>
+		<style>
+			li{
+				height: 50px;
+				width: 800px;
+				background-color: orange;
+			}
+        </style>
+            <script src="https://cn.vuejs.org/js/vue.js"></script> 
+	</head>
+	<body>
+		<div id="app">
+			<textarea v-model="msg" style="width:400px; height:100px; "></textarea>
+			<button @click	="add()" style="background-color: orange;">发布微博</button>
+			<ul>
+				<li v-for="(v,i) in article">
+					<p>{{v}}<span @click="del(i)">X</span></p>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				article:[
+						"这是第一条微博",
+						"这是第二条微博"
+				],
+				msg:''
+			},
+			methods:{
+				add:function(){
+					//unshift() 把一个元素添加到数组的开头，并返回数组的新长度。
+					this.article.unshift(this.msg);
+				},
+				del:function(i){
+					//splice() 删除第i个位置后的一个元素
+					this.article.splice(i,1);
+				}
+			}
+		});
+	</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <!-- 
+        1. 引入 需要的依赖库
+     -->
+     <script src="https://cn.vuejs.org/js/vue.js"></script> 
+</head>
+<body>
+<!--     <div id="app">
+        <span title="看到啦">标题啊</span>
+    </div> -->
+    <div class="app">
+        <span v-bind:title="title">标题啊</span>
+    </div>
+</body>
+<script>
+    // let vm = new Vue({
+    //     el:"#app",
+    //     data:{
+    //         title:"看到啦lalal"
+    //     }
+    // })
+    let vm = new Vue({
+        el:".app",
+        data:{
+            title:"看到啦lalal"
+        }
+    })
+</script>
+</html>

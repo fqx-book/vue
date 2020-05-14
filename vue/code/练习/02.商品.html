@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cn.vuejs.org/js/vue.js"></script>
+    <title>商品</title>
+    <link rel="stylesheet" href="./css/02.css">
+</head>
+<body>
+    <div id="vm">
+        商品名称：<input v-model='name' type="text" />
+        商品价格：<input v-model='jiaqian' type="text" />
+        <button v-on:click='tianjia'>增加商品</button>
+        <div class="tab">
+            <div class='biaoqian'>
+                <p>商品序号</p>
+                <p>商品名称</p>
+                <p>商品价格</p>
+                <p>删除商品</p>
+            </div>
+            <div class='item' v-for='item,index in arr'>
+                <p>{{index+1}}</p>
+                <p>{{item.name}}</p>
+                <p>{{item.jiaqian}}</p>
+                <p v-on:click='shanchu(index)'>删除</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:'#vm',
+        data:{
+            name:'',
+            jiaqian:'',
+            arr:[]
+        },
+        methods:{
+            tianjia:function(){
+                if(this.jiaqian != '' && this.name != ''){
+                    this.arr.push({
+                        'name':this.name,
+                        'jiaqian':this.jiaqian
+                    });
+                    this.jiaqian = '';  
+                    this.name = '';
+                } else {
+                    alert('请输入有效的商品名称或价格！！')
+                }                
+            },
+            shanchu:function(index){
+                this.arr.splice(index,1);
+            }
+        }
+    })
+</script>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cn.vuejs.org/js/vue.js"></script> 
+
+    <style>
+        #idd{
+            width: 258px;
+            background: linear-gradient(to left, red,green);
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="idd">
+        商品名称：<input type="text" name="name" v-model="name" style="border-radius:10px 10px 10px 10px;"/>
+        </br>
+        商品价格：<input type="text" name="jiage" v-model="jiage" style="width:100px;border-radius:10px 10px 10px 10px;"/>
+        <button @click = "add()">增加商品</button>
+        <table border="1px">
+            <template v-for="(v,index) in goods">
+					<tr v-if="index==0">
+                    <td v-for="t in title">{{t}}</td>
+                </tr>
+                <tr>
+                    <td>{{index+1}}</td>
+                    <td>{{v.name}}</td>
+                    <td>{{v.jiage}}</td>
+                    <td><span @click="del(index)">删除本行商品</span></td>
+                </tr>
+            </template>
+        </table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#idd",
+        data:{
+            title:[
+                "商品序号",
+                "商品名称",
+                "商品价格",
+                "删除商品"
+            ],
+            goods:[
+
+            ],
+            name:"",
+            jiage:""
+        },
+        methods:{
+            add:function(){
+                if(this.jiage!= '' && this.name != ''){
+                    this.arr.push({
+                        'name':this.name,
+                        'jiage':this.jiage
+                    });
+                    this.jiage = '';  
+                    this.name = '';
+                } else {
+                    alert('请输入有效的商品或价格！！')
+                 }
+            },
+            del:function(index){
+                this.goods.splice(index,1);
+            }
+        }
+    });
+</script>
+</html>

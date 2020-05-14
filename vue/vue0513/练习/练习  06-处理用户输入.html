@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="idd">
+       <p>{{oh}}</p>
+
+        <button v-on:click="reverseMessage">点一下</button>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#idd",
+        data:{
+
+           oh:"僧游云隐寺,寺隐云游曾 " 
+
+ 
+        },
+        methods:{
+            reverseMessage:function(){
+                this.oh = this.oh.split("").reverse().join("");
+            }
+        }
+    })
+</script>
+</html>

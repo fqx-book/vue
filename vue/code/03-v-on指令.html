@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <!-- 
+        1. 引入 需要的依赖库
+     -->
+     <script src="https://cn.vuejs.org/js/vue.js"></script> 
+</head>
+<body>
+
+    <div class="app">
+       <!-- <button v-on:click="title">点击出现一张图片</button> --> 
+     <!--  <button id="btn" onclick="clickFunc()">点击</button> -->
+    <!--   <button id="btn" >点击</button> -->
+      <button v-on:click="btnClick" >点击</button>
+      <img v-bind:src="src" alt="" id="img">
+    </div>
+</body>
+<script>
+    // 点击之后 出现 弹窗
+    // function clickFunc(){
+    //     alert("😊");
+    // }
+    // document.getElementById("btn").addEventListener("click",function(){
+    //     alert("😊");
+    // })
+    let vm = new Vue({
+        el:".app",
+        data:{
+            title:"看到啦lalal",
+            src:""
+        },
+        methods: {
+            btnClick:function(){
+                // 修改 图片 src 地址
+            this.src = "http://img3.cache.netease.com/photo/0026/2016-09-22/C1J71ODR3ONH0026.jpg"
+            //    document.getElementById("img").setAttribute("src",
+            //    "http://img3.cache.netease.com/photo/0026/2016-09-22/C1J71ODR3ONH0026.jpg")
+            }
+        },
+    })
+</script>
+</html>

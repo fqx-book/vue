@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1811873_d07no4g3mzb.css">
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        #idd{
+            width: 500px;
+            border: 1px solid black;
+            margin: 0 auto;
+            background:url(img/2.jpg) no-repeat;
+        }
+        #idd textarea{
+            width: 460px;
+            height: 100px;
+            margin: 10px 18px;
+            outline: none;
+            font-size: 16px;
+
+        }
+        #idd button{
+            float: right;
+            margin:0 20px 15px 0;
+            background-color: #F5C19F;
+            width: 80px;
+            height: 36px;
+            border: 0;
+            border-radius: 3px;
+            color: white;
+            cursor:pointer;
+        }
+        
+        ul li{
+            margin: 0 0 15px 18px;
+            width: 397px;
+            padding: 10px 60px 10px 5px;
+            position: relative;
+            display: flex;
+            border: 1px solid yellowgreen;
+
+        }
+        ul li span{
+            float: right;
+            position: absolute;
+            right: 5px;
+            align-self: center;
+            cursor:pointer;
+            color: red;
+        }
+        .top{
+            font-size: 14px;
+            padding-top: 10px;
+
+        }
+        .top span:first-child{
+            color: #7B8DC2;
+            margin-left: 50px;
+
+        }
+
+        .bot .mbot{
+            /* display: flex; */
+            float: left;
+            margin-left: 18px;
+        }
+        .bot .mbot span{
+            font-size: 12px;
+            color: #5B5B5B;
+            line-height: 38px;
+            margin-right: 10px;
+            
+        }
+        .bot .mbot span i{
+            margin-right: 4px;
+            vertical-align:bottom;
+            color: #f3a52b;
+        }
+    </style>
+</head>
+<body>
+    <div id="idd">
+        <div class="top">
+            <span>有什么新鲜事想告诉大家</span>
+
+        </div>
+        <textarea v-model="msg" style="resize: none;color: red;"></textarea>
+        <div class="bot">
+            <div class="mbot">
+                <span><i style="font-size: 14px;" class="iconfont icon-xiaolian"></i>表情</span>
+                <span><i style="font-size: 12px;" class="iconfont icon-tu_pian"></i>图片</span>
+                <span><i style="font-size: 18px;" class="iconfont icon-shipin"></i>视频</span>
+                <span><i style="font-size: 16px;" class="iconfont icon-wellnum"></i>话题</span>
+                <span><i style="font-size: 16px;" class="iconfont icon-shandian"></i>头条文章</span>
+                <span><i style="font-size: 16px;">...</i></span>
+            </div>
+            <button @click="add" style="border-radius:10px 10px 10px 10px; font-size: 16px;">发帖</button>
+        </div>
+        <p style="clear: both;"></p>
+        <ul>
+            <li v-for="(i,index) in arr">
+                <p>{{i}}</p>
+                <span @click="remove(index)">删除</span>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el:"#idd",
+        data:{
+            arr:[],
+            msg:''
+        },
+        methods:{
+            add:function(){
+                if(this.msg.trim()==''){ 
+                    alert("啥都没有，你发个啥");
+                }else{
+                    this.arr.unshift(this.msg);
+                    this.msg = ''
+                }
+            },
+            remove:function(index){
+                this.arr.splice(index,1);
+            }
+        }
+    })  
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 
+        1. 引入需要的外部文件
+     -->
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 定义一个根结点  -->
+    <div id="root">
+            {{ message }}
+    </div>
+    <!-- <div class="root">
+            {{ message }}
+    </div> -->
+</body>
+<script>
+    let vm = new Vue({
+        // el  
+        el:"#root",
+        data:{
+            message:"Hi 美女！"
+        }
+    })
+</script>
+</html>

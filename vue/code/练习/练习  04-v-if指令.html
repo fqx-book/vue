@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cn.vuejs.org/js/vue.js"></script> 
+
+</head>
+<body>
+    <div id = "idd">
+        <p v-if="condition">{{mess}}</p>
+        </br>
+        <p v-show="condition">{{mess}}</p>
+
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#idd",
+        data:{
+            condition:false,
+            mess:"这有点秀啊"
+        }
+    })
+</script>
+</html>

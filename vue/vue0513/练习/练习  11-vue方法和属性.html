@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="idd">
+        <p>{{oh}}</p>
+      
+        <button v-on:click="oh=123456789">点击</button>
+    </div>
+</body>
+<script>
+
+    let data = {
+        oh:"这又是什么"
+    }
+
+
+    let vm = new Vue({
+        el:"#idd",
+        data:data
+    })
+    
+    console.log(vm.$data === data);
+    
+    console.log(vm.$el === document.getElementById("idd"));
+
+    vm.$watch("oh",function(newVal,oldVal){
+        console.log(newVal,oldVal);
+    })
+
+</script>
+</html>

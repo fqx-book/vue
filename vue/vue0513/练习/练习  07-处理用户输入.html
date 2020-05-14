@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="idd">
+        <p>{{ oh }}</p>
+        <input type="text" v-model="oh">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#idd",
+        data:{
+            oh:"不要着急，一个一个来"
+        }
+    })
+</script>
+
+</html>

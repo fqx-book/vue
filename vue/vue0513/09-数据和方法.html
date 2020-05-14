@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <!--值得注意的是只有当实例被创建时就已经存在于 data 中的 property 才是响应式的
+        -->
+        <p>b:{{ b }}</p>
+    </div>
+</body>
+<script>
+
+    let data = {
+        message:"天气不错！"
+    }
+    // 冻结修改
+    Object.freeze(data);
+    let vm = new Vue({
+        el:"#app",
+        data:data
+    })
+</script>
+</html>
